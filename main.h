@@ -17,11 +17,12 @@ extern char **environ;
 #include <string.h>
 
 char *get_input(void);
+int my_getchar(void);
 char *my_strdup(const char *str);
 int my_strlen(char *s);
 int my_strcmp(char *s1, char *s2);
 char *my_strcat(char *dt, char *src);
-char **tokenizer(char *tsr);
+char **tokenizer(char *j);
 void free_str(char **arr);
 int _execute(char **cmd, char **argv);
 
