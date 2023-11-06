@@ -7,29 +7,44 @@
 
 char *get_input(void)
 {
-	char *m = NULL;
-	size_t k = 0;
-	ssize_t n;
+	char *input = NULL;
+	int c;
+	size_t i = 0;
 
-	/**
-	 * Check if the program is executing in
-	 * interactive or non-interactive mode
-	 *
-	 */
 	if (isatty(STDIN_FILENO) == 1)
 	{
 		write(STDOUT_FILENO, "$ ", 2);
 	}
-
-	/**
-	 * use the getline function to read input
-	 */
-	n = getline(&m, &k, stdin);
-	if (n == -1)
+	while (1)
 	{
-		free(m);
+		c = my_getchar();
+		if (c == EOF || c == '\n')
+		{
+			break;
+		}
+		input = realloc(input, (i + 1) * sizeof(char));
+		if (input == NULL)
+		{
+			perror("realloc");
+			exit(EXIT_FAILURE);
+		}
+		input[i++] = (char)c;
+	}
+	if (i == 0 && c == EOF)
+	{
+		free(input);
 		return (NULL);
 	}
-
-	return (m);
+	if (i == 0)
+	{
+		return (get_input());
+	}
+	input = realloc(input, (i + 1) * sizeof(char));
+	if (input == NULL)
+	{
+		perror("realloc");
+		exit(EXIT_FAILURE);
+	}
+	input[i] = '\0';
+	return (input);
 }
