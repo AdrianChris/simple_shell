@@ -1,9 +1,12 @@
 #include "main.h"
 
 /**
- * get_input - Returns a pointer to a character
- * Return: Returns the character
- */
+ * get_input - gets input from the user
+ *
+ * Return: the input string
+ *
+ * Description:
+*/
 
 char *get_input(void)
 {

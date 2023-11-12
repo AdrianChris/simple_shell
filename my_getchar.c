@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
- * my_getchar - Custom implementation of getchar.
+ * my_getchar - reads a character from stdin
+ * Return: the character read
+ * Description: reads a character from stdin
+ * and returns it
  *
- * Return: Returns the character read or EOF on end-of-file or error.
  */
 
 int my_getchar(void)

@@ -9,22 +9,40 @@
 
 extern char **environ;
 
+#include <stdarg.h>
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/stat.h>
 
 char *get_input(void);
-int my_getchar(void);
-char *my_strdup(const char *str);
-int my_strlen(char *s);
-int my_strcmp(char *s1, char *s2);
-char *my_strcat(char *dt, char *src);
 char **tokenizer(char *j);
 void free_str(char **arr);
-int _execute(char **cmd, char **argv);
+int _execute(char **cmd, char **argv, int idx);
+
+/* Tools */
+
+void my_error(char *str, char *nm, int idx);
+int my_getchar(void);
+char *_getenv(char *variable);
+char *my_itoa(int n);
+char *my_strcat(char *dt, char *src);
+char *my_strdup(const char *str);
+int my_strcmp(const char *s1, const char *s2);
+char *my_strcpy(char *dstn, const char *src);
+int my_strlen(const char *s);
+void reverse_str(char *str, int len);
+char *get_path(char *command);
+int my_sprintf(char *outbuf, const char *fmt, ...);
+int custom_snpt(char *str, size_t size, const char *format, ...);
+void handle_character(char *outbuf, int *written, const char **fmt);
+void handle_integer(char *outbuf, int *written, va_list *args, const char **fmt);
+void handle_string(char *outbuf, int *written, va_list *args, const char **fmt);
+int my_sprintf(char *outbuf, const char *fmt, ...);
+
 
 
 #endif
