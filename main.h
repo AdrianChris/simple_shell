@@ -6,7 +6,6 @@
 #define INITIAL_BUFFER_SIZE 1024
 #define MAX_INPUT_LENGTH 1024
 
-
 extern char **environ;
 
 #include <stdarg.h>
@@ -39,10 +38,10 @@ char *get_path(char *command);
 int my_sprintf(char *outbuf, const char *fmt, ...);
 int custom_snpt(char *str, size_t size, const char *format, ...);
 void handle_character(char *outbuf, int *written, const char **fmt);
-void handle_integer(char *outbuf, int *written, va_list *args, const char **fmt);
-void handle_string(char *outbuf, int *written, va_list *args, const char **fmt);
+void handle_integer(char *outbuf, int *written,
+					va_list *args, const char **fmt);
+void handle_string(char *outbuf, int *written,
+				   va_list *args, const char **fmt);
 int my_sprintf(char *outbuf, const char *fmt, ...);
-
-
 
 #endif
