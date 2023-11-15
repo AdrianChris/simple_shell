@@ -34,7 +34,7 @@ void handle_character(char *outbuf, int *written, const char **fmt)
 void handle_integer(char *outbuf, int *written,
 					va_list *args, const char **fmt)
 {
-	int i, num = va_arg(*args, int);
+	int i = 0, num = va_arg(*args, int);
 	char numStr[12];
 
 	custom_snpt(numStr, sizeof(numStr), "%d", num);
