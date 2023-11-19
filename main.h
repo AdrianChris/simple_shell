@@ -8,6 +8,7 @@
 
 extern char **environ;
 
+#include <stdbool.h>
 #include <stdarg.h>
 #include <sys/wait.h>
 #include <sys/types.h>
@@ -16,6 +17,14 @@ extern char **environ;
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
+
+bool is_builtin(const char *cmds);
+void my_error2(char *str, char *nm, int idx);
+void handle_builtin(char **cmds, char **argv, int *sts, int idx);
+void exit_shell(char **cmds, char **argv, int *sts, int idx);
+void print_env(char **cmds, int *sts);
+int my_atoi(char *str);
+bool is_positive_num(const char* str);
 
 char *get_input(void);
 char **tokenizer(char *j);

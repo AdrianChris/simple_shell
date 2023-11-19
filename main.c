@@ -44,8 +44,13 @@ int main(int ac, char **argv)
 		{
 			continue;
 		}
-
-		sts = _execute(cmds, argv, idx);
+		if (is_builtin(cmds[0]))
+		{
+			handle_builtin(cmds, argv, &sts, idx);
+		}
+		else
+			sts = _execute(cmds, argv, idx);
 	}
+
 	return (0);
 }
