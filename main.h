@@ -19,7 +19,6 @@ extern char **environ;
 #include <sys/stat.h>
 
 bool is_builtin(const char *cmds);
-void my_error2(char *str, char *nm, int idx);
 void handle_builtin(char **cmds, char **argv, int *sts, int idx);
 void exit_shell(char **cmds, char **argv, int *sts, int idx);
 void print_env(char **cmds, int *sts);
